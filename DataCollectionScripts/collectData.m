@@ -8,15 +8,16 @@ function angle = collectData(dataLength)
     fopen(s);
     s.ReadAsyncMode = 'continuous'; 
     
-    angle = zeros(dataLength, 2);
+%     angle = zeros(dataLength, 2);
+    angle = zeros(dataLength, 1);
     i = 1;
     while (i<(dataLength+1))
-        [data count errmsg] = fscanf(s, 'Potentiometer Angle: %i Desired Angle: %f');
-        data
-        length(data)
-        if (length(data) == 2)
+%         [data count errmsg] = fscanf(s, 'Potentiometer Angle: %i Desired Angle: %f');
+        [data count errmsg] = fscanf(s, 'Potentiometer Angle: %i');
+%         if (length(data) == 2)
+        if (length(data) == 1)
             angle(i, 1) = data(1);
-            angle(i, 2) = data(2);
+%             angle(i, 2) = data(2);
             i = i+1;
         end
     end

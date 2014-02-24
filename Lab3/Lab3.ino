@@ -32,16 +32,17 @@ void setup() {
   currentTime = millis();
   dTime = 0;
   set = PIDControl(10, Kp, Ki, Kd);
-  delay(1000);
+  delay(5000);
 }
 
 void loop()
 {
-  float angle = sin(millis()/1000.0)*135+145;
-  set = PIDControl(angle, Kp, Ki, Kd);
+//  float angle = sin(millis()/1000.0)*135+145;
+  set = PIDControl(100, Kp, Ki, Kd);
+//  set = PIDControl(10, Kp, 0, 0);
   runMotor(set);
   potAngleSerialOut();
-  desiredAngleOut(angle);
+//  desiredAngleOut(angle);
 }
 
 // Serial Functions
